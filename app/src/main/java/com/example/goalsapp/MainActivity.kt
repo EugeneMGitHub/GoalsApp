@@ -52,6 +52,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -104,7 +105,7 @@ fun MainApp() {
                     Icon(imageVector = Icons.Default.Menu, contentDescription = "")
                 }
                 Text(
-                    text = "Don't Give Up",
+                    text = "Александр",
                     fontWeight = FontWeight.Bold,
                     fontSize = 24.sp,
                     textAlign = TextAlign.Center,
@@ -135,17 +136,17 @@ fun MainApp() {
                 )
         ){
 //            Spacer(modifier = Modifier.height(24.dp))
-            Text(text = "2 Big Challenges", fontWeight = FontWeight.Bold, fontSize = 24.sp)
-            Text(text = "Ambitious person aren't you?", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.Gray)
+            Text(text = "Построй свои привычки", fontWeight = FontWeight.Bold, fontSize = 24.sp)
+            Text(text = "Добавить новую категорию привычек?", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.Gray)
             Spacer(modifier = Modifier.height(24.dp))
 
             Row(Modifier.fillMaxWidth()) {
                 BigButton(
                     icon = Icons.Default.Timer,
                     iconTint = Color(0xff45BAC5),
-                    title = "Life Style",
-                    subtitle = "Become a morning person",
-                    reminder = "Every Day",
+                    title = "Образ жизни",
+                    subtitle = "Привычки для лучшей жизни",
+                    reminder = "Каждый день",
                     modifier = Modifier
                         .weight(1f)
                         .clickable { }
@@ -154,33 +155,33 @@ fun MainApp() {
                 BigButton(
                     icon = Icons.Default.Favorite,
                     iconTint = Color(0xffFA6569),
-                    title = "Healthy Life",
-                    subtitle = "Because your health is the most important",
-                    reminder = "Every Day",
+                    title = "Здоровье",
+                    subtitle = "Привычки для улучшения здоровья",
+                    reminder = "Каждый день",
                     modifier = Modifier
                         .weight(1f)
                         .clickable { }
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
-            Text(text = "Today's Planning", fontWeight = FontWeight.Bold, fontSize = 24.sp)
-            Text(text = "You have three actions to do", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.Gray)
+            Text(text = "Планы на сегодня", fontWeight = FontWeight.Bold, fontSize = 24.sp)
+            Text(text = "На сегодня у тебя 3 задачи", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.Gray)
             Spacer(modifier = Modifier.height(24.dp))
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 TaskItem(
                     icon = Icons.Outlined.Lightbulb,
-                    title = "Learn new skill",
-                    subtitle = "Complete programming course",
+                    title = "Выучить параграф",
+                    subtitle = "Прочитать и выучить 2 параграф",
                     modifier = Modifier.clickable { })
                 TaskItem(
                     icon = Icons.Outlined.WorkOutline,
-                    title = "Create tutorial",
-                    subtitle = "Create new YouTube tutorial",
+                    title = "Сделать зарядку",
+                    subtitle = "Зарядка на укрепление спины",
                     modifier = Modifier.clickable { })
                 TaskItem(
                     icon = Icons.Outlined.PlayArrow,
-                    title = "Watch video",
-                    subtitle = "Watch CodingArk new videos",
+                    title = "Посмотреть обучающее видео",
+                    subtitle = "Видео: https://www.youtubе.com/asdar223",
                     modifier = Modifier.clickable { })
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -215,7 +216,7 @@ fun BigButton(
             Text(text = title, fontWeight = FontWeight.SemiBold, fontSize = 18.sp)
             Text(text = subtitle, fontWeight = FontWeight.Medium, fontSize = 12.sp)
             Spacer(modifier = Modifier.height(16.dp))
-            Text(text = "Reminder", fontWeight = FontWeight.Light, fontSize = 10.sp, color = Color.Gray)
+            Text(text = "Напомнить:", fontWeight = FontWeight.Light, fontSize = 10.sp, color = Color.Gray)
             Text(text = reminder, fontWeight = FontWeight.SemiBold, fontSize = 10.sp)
         }
     }
@@ -263,7 +264,9 @@ fun TaskItem(
                     .weight(1f)
             ){
                 Text(text = title)
-                Text(text = subtitle, fontSize = 12.sp, color = Color.Gray)
+                Text(text = subtitle, fontSize = 12.sp, color = Color.Gray,
+                    overflow = TextOverflow.Ellipsis
+                    )
             }
             IconButton(
                 onClick = {  },
